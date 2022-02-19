@@ -170,6 +170,9 @@ if(NOT FREERTOS_PORT)
         " WIZC_PIC18                       - Compiller: WizC          Target: PIC18")
 endif()
 
+set(FREERTOS_CONFIG_INC_DIR ${CMAKE_CURRENT_BINARY_DIR}/config)
+configure_file(${FREERTOS_CONFIG_FILE_DIRECTORY}/FreeRTOSConfig.h ${FREERTOS_CONFIG_INC_DIR}/FreeRTOSConfig.h COPYONLY)
+
 add_subdirectory(portable)
 
 add_library(freertos_kernel STATIC
@@ -189,7 +192,7 @@ add_library(freertos_kernel STATIC
 target_include_directories(freertos_kernel
     PUBLIC
         include
-        ${FREERTOS_CONFIG_FILE_DIRECTORY}
+        ${FREERTOS_CONFIG_INC_DIR}
 )
 
 target_link_libraries(freertos_kernel freertos_kernel_port)
