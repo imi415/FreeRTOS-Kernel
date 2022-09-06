@@ -90,6 +90,7 @@ if(NOT FREERTOS_PORT)
         " GCC_RX600                        - Compiller: GCC           Target: Renesas RX600\n"
         " GCC_RX600_V2                     - Compiller: GCC           Target: Renesas RX600 v2\n"
         " GCC_RX700_V3_DPFPU               - Compiller: GCC           Target: Renesas RX700 v3 with DPFPU\n"
+        " GCC_SH4                          - Compiller: GCC           Target: Hitachi(Renesas)/STMicroelectronics SH-4\n"
         " GCC_STR75X                       - Compiller: GCC           Target: STR75x\n"
         " GCC_TRICORE_1782                 - Compiller: GCC           Target: TriCore 1782\n"
         " GCC_ARC_EM_HS                    - Compiller: GCC           Target: DesignWare ARC EM HS\n"
