@@ -123,7 +123,16 @@ definitions. */
 
         /* Update the 64-bit mtimer compare match value. */
         ld t2, 0(a1)                /* Load ullNextTime into t2. */
-        sd t2, 0(a0)                /* Store ullNextTime into compare register. */
+
+        /* On some RV64 platforms, CLINT registers can't be accessed using 64bit width */
+        #if defined( portasmRV64_CLINT_32B )
+            srli a2, t2, 32             /* Copy the high word of ullNextTime into a2 */
+            sw a2, 4(a0)                /* Store high word of ullNextTime into compare register */
+            sw t2, 0(a0)                /* Store low word of ullNextTime into compare register. */
+        #else
+            sd t2, 0(a0)                /* Store ullNextTime into compare register. */
+        #endif
+
         ld t0, uxTimerIncrementsForOneTick  /* Load the value of ullTimerIncrementForOneTick into t0 (could this be optimized by storing in an array next to pullNextTime?). */
         add t4, t0, t2              /* Add ullNextTime to the timer increments for one tick. */
         sd t4, 0(a1)                /* Store ullNextTime. */
