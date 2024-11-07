@@ -3,7 +3,11 @@ if( FREERTOS_PORT STREQUAL "GCC_RISC_V_GENERIC" )
             "Pulpino_Vega_RV32M1RM"
             "RISCV_MTIME_CLINT_no_extensions"
             "RISCV_no_extensions"
-            "RV32I_CLINT_no_extensions" )
+            "RV32I_CLINT_no_extensions"
+            "WCH_RISC_V3C"
+            "WCH_RISC_V4A"
+            "WCH_RISC_V4C"
+    )
 
     if( ( NOT FREERTOS_RISCV_EXTENSION ) OR ( NOT ( ${FREERTOS_RISCV_EXTENSION} IN_LIST VALID_CHIP_EXTENSIONS ) ) )
         message(FATAL_ERROR
