@@ -1,5 +1,6 @@
 if( FREERTOS_PORT STREQUAL "GCC_RISC_V_GENERIC" )
     set( VALID_CHIP_EXTENSIONS
+            "AndeStar_D25F"
             "Pulpino_Vega_RV32M1RM"
             "RISCV_MTIME_CLINT_no_extensions"
             "RISCV_no_extensions"
